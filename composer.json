@@ -1,0 +1,29 @@
+{
+  "name": "brightnucleus/static-facade",
+  "description": "Abstract static Facade class to wrap around shared object instances for convenient access.",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alain Schlesser",
+      "email": "alain.schlesser@gmail.com"
+    }
+  ],
+  "require": {
+    "brightnucleus/exceptions": ">=0.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~5"
+  },
+  "autoload": {
+    "psr-4": {
+      "BrightNucleus\\StaticFacade\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "BrightNucleus\\StaticFacade\\Tests\\": "tests/fixtures/"
+    }
+  }
+}
