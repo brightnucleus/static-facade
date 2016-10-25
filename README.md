@@ -13,6 +13,8 @@ Abstract static Facade class to wrap around shared object instances for convenie
 * [Basic Usage](#basic-usage)
     * [Extending The StaticFacade Class](#extending-the-staticfacade-class)
     * [Using The StaticFacadeTrait Trait](#using-the-staticfacadetrait-trait)
+    * [Exception Thrown On Missing Method](#exception-thrown-on-missing-method)
+    * [Adding Methods Directly To The Facade](#adding-methods-directly-to-the-facade)
 * [Contributing](#contributing)
 * [License](#license)
 
@@ -103,6 +105,21 @@ To provide custom exceptions, you can override the `getFacadeException` method, 
 
 ```PHP
 protected static function getFacadeException(string $method, array $arguments) : Exception
+```
+
+### Adding Methods Directly To The Facade
+
+By default, the static Facade will now just work, and dynamically forward any method calls to its wrapped object dynamically.
+
+However, you can always directly add stubs to the Facade. This might make sense if you're using the Facade a lot, as the automagic method of forwarding the calls is slower than a direct call, and it is also missing the necessary hints for your IDE to make any sense of it.
+
+To use direct calls, just add the matching static methods, and forward the arguments to the dynamic method no the object's instance, like in the following example:
+
+```PHP
+public static function find(int $userID) {
+    return Services::get('UserRepository')
+                   ->find($userID);
+}
 ```
 
 ## Contributing
