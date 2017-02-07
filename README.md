@@ -109,7 +109,7 @@ protected static function getFacadeException(string $method, array $arguments) :
 
 ### Adding Methods Directly To The Facade
 
-By default, the static Facade will now just work, and dynamically forward any method calls to its wrapped object dynamically.
+By default, the static Facade will now just work, and forward any method calls to its wrapped object dynamically.
 
 However, you can always directly add stubs to the Facade. This might make sense if you're using the Facade a lot, as the automagic method of forwarding the calls is slower than a direct call, and it is also missing the necessary hints for your IDE to make any sense of it.
 
